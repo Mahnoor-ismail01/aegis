@@ -1,0 +1,4 @@
+  CREATE_STREAM @0 {NAME:s1 T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:620}
+  CREATE_STREAM @95000 {NAME:s2 T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:752}
+  CREATE_STREAM @175000 {NAME:s3 T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:843}
+  CREATE_STREAM @225000 {NAME:s4 T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:904}

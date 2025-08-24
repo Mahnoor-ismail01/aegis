@@ -1,0 +1,13 @@
+BEGIN 3:uart_if:fast__2:work
+    tx_start :  1:tb_top:fast:work
+    tx_done :  1:tb_top:fast:work
+    tx_data :  1:tb_top:fast:work
+    tx :  1:tb_top:fast:work
+END 
+BEGIN 3:uart_if:fast__1:work
+    tx_start :  1:uvm_pkg_sv_unit:fast:work
+    reset_n :  1:uvm_pkg_sv_unit:fast:work
+    clk :  1:uvm_pkg_sv_unit:fast:work
+    tx_data :  1:uvm_pkg_sv_unit:fast:work
+    tx_done :  1:uvm_pkg_sv_unit:fast:work
+END 

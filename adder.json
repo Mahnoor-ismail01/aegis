@@ -1,0 +1,53 @@
+{
+  "dut": "adder",
+  "data_width": 8,
+  "ports": [
+    {"name": "rstn", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "a", "direction": "input", "size": 8, "datatype": "bit"},
+    {"name": "b", "direction": "input", "size": 8, "datatype": "bit"},
+    {"name": "sum", "direction": "output", "size": 8, "datatype": "bit"},
+    {"name": "carry", "direction": "output", "size": 1, "datatype": "bit"}
+  ],
+  "testcases": [
+    {
+      "name": "basic_addition",
+      "num_transactions": 10,
+      "constraints": {
+        "a_min": {"value": 0, "datatype": "int"},
+        "a_max": {"value": 100, "datatype": "int"},
+        "b_min": {"value": 0, "datatype": "int"},
+        "b_max": {"value": 100, "datatype": "int"}
+      }
+    },
+    {
+      "name": "edge_case_test",
+      "num_transactions": 8,
+      "constraints": {
+        "a_min": {"value": 0, "datatype": "int"},
+        "a_max": {"value": 255, "datatype": "int"},
+        "b_min": {"value": 0, "datatype": "int"},
+        "b_max": {"value": 255, "datatype": "int"}
+      }
+    },
+    {
+      "name": "large_values",
+      "num_transactions": 5,
+      "constraints": {
+        "a_min": {"value": 200, "datatype": "int"},
+        "a_max": {"value": 255, "datatype": "int"},
+        "b_min": {"value": 200, "datatype": "int"},
+        "b_max": {"value": 255, "datatype": "int"}
+      }
+    },
+    {
+      "name": "random_test",
+      "num_transactions": 15,
+      "constraints": {
+        "a_min": {"value": 0, "datatype": "int"},
+        "a_max": {"value": 255, "datatype": "int"},
+        "b_min": {"value": 0, "datatype": "int"},
+        "b_max": {"value": 255, "datatype": "int"}
+      }
+    }
+  ]
+}

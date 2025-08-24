@@ -1,0 +1,175 @@
+QuestaSim-64 qrun 2024.3_1 Utility 2024.10 Oct 17 2024
+Start time: 11:15:30 on Aug 24,2025
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2024.3_1 Compiler 2024.10 Oct 17 2024
+Start time: 11:15:30 on Aug 24,2025
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -writesessionid "+qrun.out/top_dus" -csession=incr 
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling interface adder_if
+-- Compiling module adder
+-- Compiling module tb_top
+
+Top level modules:
+	tb_top
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.c:27,
+                 from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc:37:
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:90:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   90 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:72:20: note: length computed here
+   72 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 11:15:34 on Aug 24,2025, Elapsed time: 0:00:04
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2024.3_1 Compiler 2024.10 Oct 17 2024
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 11:15:35 on Aug 24,2025
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+1+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=2 
+
+Top level modules:
+	tb_top
+
+Analyzing design...
+-- Loading module tb_top
+-- Loading package questa_uvm_pkg
+-- Loading interface adder_if
+-- Loading module adder
+Optimizing 7 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing interface adder_if(fast__2)
+-- Optimizing module tb_top(fast)
+-- Optimizing module adder(fast)
+-- Optimizing interface adder_if(fast)
+Optimized design name is qrun_opt
+End time: 11:15:44 on Aug 24,2025, Elapsed time: 0:00:09
+Errors: 0, Warnings: 1
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 11:15:44 on Aug 24,2025
+# Loading /tmp/unknown@1314ee1353af_dpi_51/linux_x86_64_gcc-10.3.0/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2024.3_1 linux_x86_64 Oct 17 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.adder_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.adder_if(fast__2)
+# Loading work.adder(fast)
+# Compiling /tmp/unknown@1314ee1353af_dpi_51/linux_x86_64_gcc-10.3.0/exportwrapper.c
+# Loading /tmp/unknown@1314ee1353af_dpi_51/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test adder_test...
+# UVM_INFO testbench.sv(246) @ 15000: uvm_test_top.env.scoreboard [MATCH] a=24 b=6 sum=30 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 25000: uvm_test_top.env.scoreboard [MATCH] a=33 b=0 sum=33 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 35000: uvm_test_top.env.scoreboard [MATCH] a=71 b=19 sum=90 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 45000: uvm_test_top.env.scoreboard [MATCH] a=35 b=53 sum=88 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 55000: uvm_test_top.env.scoreboard [MATCH] a=19 b=99 sum=118 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 65000: uvm_test_top.env.scoreboard [MATCH] a=95 b=45 sum=140 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 75000: uvm_test_top.env.scoreboard [MATCH] a=63 b=73 sum=136 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 85000: uvm_test_top.env.scoreboard [MATCH] a=6 b=57 sum=63 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 95000: uvm_test_top.env.scoreboard [MATCH] a=93 b=30 sum=123 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 105000: uvm_test_top.env.scoreboard [MATCH] a=97 b=62 sum=159 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 115000: uvm_test_top.env.scoreboard [MATCH] a=30 b=1 sum=31 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 125000: uvm_test_top.env.scoreboard [MATCH] a=212 b=87 sum=43 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 135000: uvm_test_top.env.scoreboard [MATCH] a=162 b=197 sum=103 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 145000: uvm_test_top.env.scoreboard [MATCH] a=178 b=92 sum=14 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 155000: uvm_test_top.env.scoreboard [MATCH] a=49 b=219 sum=12 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 165000: uvm_test_top.env.scoreboard [MATCH] a=51 b=80 sum=131 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 175000: uvm_test_top.env.scoreboard [MATCH] a=203 b=84 sum=31 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 185000: uvm_test_top.env.scoreboard [MATCH] a=46 b=108 sum=154 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 195000: uvm_test_top.env.scoreboard [MATCH] a=248 b=232 sum=224 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 205000: uvm_test_top.env.scoreboard [MATCH] a=204 b=238 sum=186 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 215000: uvm_test_top.env.scoreboard [MATCH] a=254 b=245 sum=243 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 225000: uvm_test_top.env.scoreboard [MATCH] a=250 b=234 sum=228 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 235000: uvm_test_top.env.scoreboard [MATCH] a=214 b=221 sum=179 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 245000: uvm_test_top.env.scoreboard [MATCH] a=14 b=28 sum=42 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 255000: uvm_test_top.env.scoreboard [MATCH] a=140 b=16 sum=156 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 265000: uvm_test_top.env.scoreboard [MATCH] a=28 b=66 sum=94 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 275000: uvm_test_top.env.scoreboard [MATCH] a=60 b=132 sum=192 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 285000: uvm_test_top.env.scoreboard [MATCH] a=56 b=239 sum=39 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 295000: uvm_test_top.env.scoreboard [MATCH] a=149 b=229 sum=122 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 305000: uvm_test_top.env.scoreboard [MATCH] a=152 b=112 sum=8 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 315000: uvm_test_top.env.scoreboard [MATCH] a=56 b=25 sum=81 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 325000: uvm_test_top.env.scoreboard [MATCH] a=236 b=240 sum=220 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 335000: uvm_test_top.env.scoreboard [MATCH] a=234 b=229 sum=207 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 345000: uvm_test_top.env.scoreboard [MATCH] a=55 b=77 sum=132 carry=0 OK
+# UVM_INFO testbench.sv(246) @ 355000: uvm_test_top.env.scoreboard [MATCH] a=192 b=229 sum=165 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 365000: uvm_test_top.env.scoreboard [MATCH] a=205 b=227 sum=176 carry=1 OK
+# UVM_INFO testbench.sv(246) @ 375000: uvm_test_top.env.scoreboard [MATCH] a=99 b=103 sum=202 carry=0 OK
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 375000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 375000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   42
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [MATCH]    37
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 375 ns  Iteration: 76  Instance: /tb_top
+# End time: 11:15:48 on Aug 24,2025, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 0
+End time: 11:15:48 on Aug 24,2025, Elapsed time: 0:00:18
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   1

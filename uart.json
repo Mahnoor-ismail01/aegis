@@ -1,0 +1,58 @@
+{
+  "dut": "uart",
+  "data_width": 8,
+  "ports": [
+    {"name": "clk", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "reset_n", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "tx_data", "direction": "input", "size": 8, "datatype": "bit"},
+    {"name": "tx_start", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "tx", "direction": "output", "size": 1, "datatype": "bit"},
+    {"name": "tx_done", "direction": "output", "size": 1, "datatype": "bit"}
+  ],
+  "testcases": [
+    {
+      "name": "basic_transmission",
+      "num_transactions": 10,
+      "constraints": {
+        "tx_data_min": {"value": 0, "datatype": "int"},
+        "tx_data_max": {"value": 255, "datatype": "int"},
+        "baud_rate_min": {"value": 9600, "datatype": "int"},
+        "baud_rate_max": {"value": 9600, "datatype": "int"},
+        "enable_parity": {"value": false, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "parity_test",
+      "num_transactions": 5,
+      "constraints": {
+        "tx_data_min": {"value": 0, "datatype": "int"},
+        "tx_data_max": {"value": 255, "datatype": "int"},
+        "baud_rate_min": {"value": 19200, "datatype": "int"},
+        "baud_rate_max": {"value": 19200, "datatype": "int"},
+        "enable_parity": {"value": true, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "random_test",
+      "num_transactions": 15,
+      "constraints": {
+        "tx_data_min": {"value": 0, "datatype": "int"},
+        "tx_data_max": {"value": 255, "datatype": "int"},
+        "baud_rate_min": {"value": 9600, "datatype": "int"},
+        "baud_rate_max": {"value": 115200, "datatype": "int"},
+        "enable_parity": {"value": false, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "edge_case_test",
+      "num_transactions": 8,
+      "constraints": {
+        "tx_data_min": {"value": 0, "datatype": "int"},
+        "tx_data_max": {"value": 255, "datatype": "int"},
+        "baud_rate_min": {"value": 4800, "datatype": "int"},
+        "baud_rate_max": {"value": 115200, "datatype": "int"},
+        "enable_parity": {"value": true, "datatype": "bit"}
+      }
+    }
+  ]
+}
