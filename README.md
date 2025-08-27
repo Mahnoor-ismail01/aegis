@@ -43,9 +43,8 @@ The Aegis project, part of Google Summer of Code 2025, is a versatile UVM (Unive
 
 3. UVM Simulator:
 
-         EDA Playground: A cloud-based platform for running UVM simulations (https://www.edaplayground.com), I am using  Siemens Questa 2024.3 with UVM 1.2 support for compiling and simulating generated files.
+    EDA Playground: A cloud-based platform for running UVM simulations (https://www.edaplayground.com), I am using  Siemens Questa 2024.3 with UVM 1.2 support for compiling and simulating generated files.
 
-4. License Server: Siemens EDA license server for QuestaSim (SALT_LICENSE_SERVER).
 
 ### Developed by <b>Mahnoor Ismail</b> 
 
