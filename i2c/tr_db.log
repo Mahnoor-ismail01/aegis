@@ -1,0 +1,5 @@
+  CREATE_STREAM @0 {NAME:single_write_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:627}
+  CREATE_STREAM @295000 {NAME:single_read_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:961}
+  CREATE_STREAM @595000 {NAME:multiple_write_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:1272}
+  CREATE_STREAM @1045000 {NAME:multiple_read_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:1733}
+  CREATE_STREAM @1495000 {NAME:edge_case_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:2194}

@@ -1,0 +1,24 @@
+BEGIN 3:i2c_if:fast__2:work
+    miso_data :  1:tb_top:fast:work
+    reset_n :  1:tb_top:fast:work
+    read_write :  1:tb_top:fast:work
+    external_serial_clock :  1:tb_top:fast:work
+    register_address :  1:tb_top:fast:work
+    external_serial_data :  1:tb_top:fast:work
+    divider :  1:tb_top:fast:work
+    busy :  1:tb_top:fast:work
+    enable :  1:tb_top:fast:work
+    mosi_data :  1:tb_top:fast:work
+    device_address :  1:tb_top:fast:work
+END 
+BEGIN 3:i2c_if:fast__1:work
+    device_address :  1:uvm_pkg_sv_unit:fast:work
+    read_write :  1:uvm_pkg_sv_unit:fast:work
+    divider :  1:uvm_pkg_sv_unit:fast:work
+    mosi_data :  1:uvm_pkg_sv_unit:fast:work
+    miso_data :  1:uvm_pkg_sv_unit:fast:work
+    busy :  1:uvm_pkg_sv_unit:fast:work
+    register_address :  1:uvm_pkg_sv_unit:fast:work
+    enable :  1:uvm_pkg_sv_unit:fast:work
+    clk :  1:uvm_pkg_sv_unit:fast:work
+END 

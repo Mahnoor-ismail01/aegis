@@ -1,0 +1,5 @@
+  CREATE_STREAM @0 {NAME:basic_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:627}
+  CREATE_STREAM @335000 {NAME:write_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:893}
+  CREATE_STREAM @655000 {NAME:read_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:1160}
+  CREATE_STREAM @875000 {NAME:obias_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:1315}
+  CREATE_STREAM @1755000 {NAME:rrw_seq_h T:Transactions SCOPE:uvm_test_top.env.agent.sequencer STREAM:1994}

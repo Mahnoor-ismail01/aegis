@@ -1,0 +1,64 @@
+{
+  "dut": "fifo",
+  "data_width": 8,
+  "ports": [
+    {"name": "clk", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "rst_n", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "wr_en", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "rd_en", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "din", "direction": "input", "size": 8, "datatype": "bit"},
+    {"name": "dout", "direction": "output", "size": 8, "datatype": "bit"}
+  ],
+  "testcases": [
+    {
+      "name": "basic_write_read",
+      "num_transactions": 4,
+      "constraints": {
+        "din_min": {"value": 0, "datatype": "int"},
+        "din_max": {"value": 255, "datatype": "int"},
+        "wr_en_probability": {"value": 0.5, "datatype": "real"},
+        "rd_en_probability": {"value": 0.5, "datatype": "real"}
+      }
+    },
+    {
+      "name": "write_only",
+      "num_transactions": 10,
+      "constraints": {
+        "din_min": {"value": 0, "datatype": "int"},
+        "din_max": {"value": 255, "datatype": "int"},
+        "wr_en_probability": {"value": 1.0, "datatype": "real"},
+        "rd_en_probability": {"value": 0.0, "datatype": "real"}
+      }
+    },
+    {
+      "name": "read_only_underflow",
+      "num_transactions": 5,
+      "constraints": {
+        "din_min": {"value": 0, "datatype": "int"},
+        "din_max": {"value": 255, "datatype": "int"},
+        "wr_en_probability": {"value": 0.0, "datatype": "real"},
+        "rd_en_probability": {"value": 1.0, "datatype": "real"}
+      }
+    },
+    {
+      "name": "overflow_test",
+      "num_transactions": 20,
+      "constraints": {
+        "din_min": {"value": 0, "datatype": "int"},
+        "din_max": {"value": 255, "datatype": "int"},
+        "wr_en_probability": {"value": 0.9, "datatype": "real"},
+        "rd_en_probability": {"value": 0.1, "datatype": "real"}
+      }
+    },
+    {
+      "name": "random_read_write",
+      "num_transactions": 30,
+      "constraints": {
+        "din_min": {"value": 0, "datatype": "int"},
+        "din_max": {"value": 255, "datatype": "int"},
+        "wr_en_probability": {"value": 0.5, "datatype": "real"},
+        "rd_en_probability": {"value": 0.5, "datatype": "real"}
+      }
+    }
+  ]
+}

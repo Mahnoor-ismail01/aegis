@@ -41,7 +41,9 @@ The Aegis project, part of Google Summer of Code 2025, is a versatile UVM (Unive
 
 2. Jinja2: Python library for template rendering (pip3 install jinja2).
 
-3. UVM Simulator: QuestaSim or similar with UVM 1.2 support for compiling and simulating generated files.
+3. UVM Simulator:
+
+         EDA Playground: A cloud-based platform for running UVM simulations (https://www.edaplayground.com), I am using  Siemens Questa 2024.3 with UVM 1.2 support for compiling and simulating generated files.
 
 4. License Server: Siemens EDA license server for QuestaSim (SALT_LICENSE_SERVER).
 

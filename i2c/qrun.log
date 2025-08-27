@@ -1,0 +1,580 @@
+QuestaSim-64 qrun 2024.3_1 Utility 2024.10 Oct 17 2024
+Start time: 19:46:26 on Aug 26,2025
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2024.3_1 Compiler 2024.10 Oct 17 2024
+Start time: 19:46:26 on Aug 26,2025
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -writesessionid "+qrun.out/top_dus" -csession=incr 
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling interface i2c_if
+-- Compiling module i2c_master
+-- Compiling module tb_top
+
+Top level modules:
+	tb_top
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.c:27,
+                 from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc:37:
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:90:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   90 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:72:20: note: length computed here
+   72 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 19:46:30 on Aug 26,2025, Elapsed time: 0:00:04
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2024.3_1 Compiler 2024.10 Oct 17 2024
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 19:46:30 on Aug 26,2025
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+1+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=2 
+
+Top level modules:
+	tb_top
+
+Analyzing design...
+-- Loading module tb_top
+-- Loading package questa_uvm_pkg
+-- Loading interface i2c_if
+-- Loading module i2c_master
+Optimizing 7 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing module i2c_master(fast)
+-- Optimizing interface i2c_if(fast__2)
+-- Optimizing module tb_top(fast)
+-- Optimizing interface i2c_if(fast)
+Optimized design name is qrun_opt
+End time: 19:46:37 on Aug 26,2025, Elapsed time: 0:00:07
+Errors: 0, Warnings: 1
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 19:46:37 on Aug 26,2025
+# Loading /tmp/unknown@b8d0bfcfc1f5_dpi_51/linux_x86_64_gcc-10.3.0/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2024.3_1 linux_x86_64 Oct 17 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.i2c_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.i2c_if(fast__2)
+# Loading work.i2c_master(fast)
+# Compiling /tmp/unknown@b8d0bfcfc1f5_dpi_51/linux_x86_64_gcc-10.3.0/exportwrapper.c
+# Loading /tmp/unknown@b8d0bfcfc1f5_dpi_51/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test i2c_test...
+# UVM_INFO testbench.sv(216) @ 25000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=153 miso=0 busy=0
+# UVM_INFO testbench.sv(250) @ 25000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=153)
+# UVM_INFO testbench.sv(216) @ 35000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=153 miso=0 busy=1
+# UVM_INFO testbench.sv(258) @ 35000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @35000
+# UVM_INFO testbench.sv(216) @ 45000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=113 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 55000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=113 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 55000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=113)
+# UVM_INFO testbench.sv(258) @ 55000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @55000
+# UVM_INFO testbench.sv(216) @ 65000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=113 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 75000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=148 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 85000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=148 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 85000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=148)
+# UVM_INFO testbench.sv(258) @ 85000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @85000
+# UVM_INFO testbench.sv(216) @ 95000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=148 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 105000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=112 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 115000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=0 mosi=112 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 115000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=1 mosi=112)
+# UVM_INFO testbench.sv(258) @ 115000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @115000
+# UVM_INFO testbench.sv(216) @ 125000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=112 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 135000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=204 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 145000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=204 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 145000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=204)
+# UVM_INFO testbench.sv(258) @ 145000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @145000
+# UVM_INFO testbench.sv(216) @ 155000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=204 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 165000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=63 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 175000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=0 mosi=63 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 175000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=1 mosi=63)
+# UVM_INFO testbench.sv(258) @ 175000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @175000
+# UVM_INFO testbench.sv(216) @ 185000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=63 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 195000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=26 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 205000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=26 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 205000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=26)
+# UVM_INFO testbench.sv(258) @ 205000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @205000
+# UVM_INFO testbench.sv(216) @ 215000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=26 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 225000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=140 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 235000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=140 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 235000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=140)
+# UVM_INFO testbench.sv(258) @ 235000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @235000
+# UVM_INFO testbench.sv(216) @ 245000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=140 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 255000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=237 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 265000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=237 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 265000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=237)
+# UVM_INFO testbench.sv(258) @ 265000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @265000
+# UVM_INFO testbench.sv(216) @ 275000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=237 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 285000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=212 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 295000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=0 mosi=212 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 295000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=1 mosi=212)
+# UVM_INFO testbench.sv(258) @ 295000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @295000
+# UVM_INFO testbench.sv(216) @ 305000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=212 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 315000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=164 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 325000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=0 mosi=164 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 325000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=1 mosi=164)
+# UVM_INFO testbench.sv(258) @ 325000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @325000
+# UVM_INFO testbench.sv(216) @ 335000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=164 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 345000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 355000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 355000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=105)
+# UVM_INFO testbench.sv(258) @ 355000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @355000
+# UVM_INFO testbench.sv(216) @ 365000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 375000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=6 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 385000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=6 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 385000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=6)
+# UVM_INFO testbench.sv(258) @ 385000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @385000
+# UVM_INFO testbench.sv(216) @ 395000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=6 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 405000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=207 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 415000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=207 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 415000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=207)
+# UVM_INFO testbench.sv(258) @ 415000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @415000
+# UVM_INFO testbench.sv(216) @ 425000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=207 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 435000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=219 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 445000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=219 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 445000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=219)
+# UVM_INFO testbench.sv(258) @ 445000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @445000
+# UVM_INFO testbench.sv(216) @ 455000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=219 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 465000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=75 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 475000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=75 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 475000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=75)
+# UVM_INFO testbench.sv(258) @ 475000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @475000
+# UVM_INFO testbench.sv(216) @ 485000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=75 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 495000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=5 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 505000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=0 mosi=5 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 505000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=1 mosi=5)
+# UVM_INFO testbench.sv(258) @ 505000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @505000
+# UVM_INFO testbench.sv(216) @ 515000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=5 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 525000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=33 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 535000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=33 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 535000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=33)
+# UVM_INFO testbench.sv(258) @ 535000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @535000
+# UVM_INFO testbench.sv(216) @ 545000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=33 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 555000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=4 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 565000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=0 mosi=4 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 565000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=1 mosi=4)
+# UVM_INFO testbench.sv(258) @ 565000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @565000
+# UVM_INFO testbench.sv(216) @ 575000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=0 mosi=4 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 585000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=48 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 595000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=0 mosi=48 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=0 rw=0 mosi=48)
+# UVM_INFO testbench.sv(258) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @595000
+# UVM_INFO testbench.sv(216) @ 605000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=0 mosi=48 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 615000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=12 mosi=215 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 625000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=12 mosi=215 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 625000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=12 rw=1 mosi=215)
+# UVM_INFO testbench.sv(258) @ 625000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @625000
+# UVM_INFO testbench.sv(216) @ 635000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=12 mosi=215 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 645000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=15 mosi=139 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 655000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=15 mosi=139 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 655000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=15 rw=1 mosi=139)
+# UVM_INFO testbench.sv(258) @ 655000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @655000
+# UVM_INFO testbench.sv(216) @ 665000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=15 mosi=139 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 675000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=13 mosi=255 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 685000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=13 mosi=255 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 685000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=13 rw=0 mosi=255)
+# UVM_INFO testbench.sv(258) @ 685000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @685000
+# UVM_INFO testbench.sv(216) @ 695000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=13 mosi=255 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 705000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=11 mosi=43 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 715000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=11 mosi=43 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 715000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=11 rw=1 mosi=43)
+# UVM_INFO testbench.sv(258) @ 715000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @715000
+# UVM_INFO testbench.sv(216) @ 725000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=11 mosi=43 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 735000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=11 mosi=178 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 745000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=11 mosi=178 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 745000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=11 rw=0 mosi=178)
+# UVM_INFO testbench.sv(258) @ 745000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @745000
+# UVM_INFO testbench.sv(216) @ 755000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=11 mosi=178 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 765000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=12 mosi=150 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 775000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=12 mosi=150 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 775000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=12 rw=0 mosi=150)
+# UVM_INFO testbench.sv(258) @ 775000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @775000
+# UVM_INFO testbench.sv(216) @ 785000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=12 mosi=150 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 795000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=3 mosi=114 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 805000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=3 mosi=114 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 805000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=3 rw=1 mosi=114)
+# UVM_INFO testbench.sv(258) @ 805000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @805000
+# UVM_INFO testbench.sv(216) @ 815000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=3 mosi=114 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 825000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=15 mosi=217 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 835000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=15 mosi=217 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 835000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=15 rw=0 mosi=217)
+# UVM_INFO testbench.sv(258) @ 835000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @835000
+# UVM_INFO testbench.sv(216) @ 845000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=15 mosi=217 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 855000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=9 mosi=224 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 865000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=9 mosi=224 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 865000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=9 rw=0 mosi=224)
+# UVM_INFO testbench.sv(258) @ 865000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @865000
+# UVM_INFO testbench.sv(216) @ 875000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=9 mosi=224 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 885000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=7 mosi=49 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 895000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=7 mosi=49 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 895000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=7 rw=1 mosi=49)
+# UVM_INFO testbench.sv(258) @ 895000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @895000
+# UVM_INFO testbench.sv(216) @ 905000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=7 mosi=49 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 915000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=7 mosi=131 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 925000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=7 mosi=131 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 925000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=7 rw=0 mosi=131)
+# UVM_INFO testbench.sv(258) @ 925000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @925000
+# UVM_INFO testbench.sv(216) @ 935000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=7 mosi=131 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 945000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=5 mosi=153 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 955000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=5 mosi=153 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 955000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=5 rw=0 mosi=153)
+# UVM_INFO testbench.sv(258) @ 955000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @955000
+# UVM_INFO testbench.sv(216) @ 965000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=5 mosi=153 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 975000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=1 mosi=156 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 985000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=1 mosi=156 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 985000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=1 rw=0 mosi=156)
+# UVM_INFO testbench.sv(258) @ 985000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @985000
+# UVM_INFO testbench.sv(216) @ 995000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=1 mosi=156 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1005000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=4 mosi=92 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1015000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=4 mosi=92 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1015000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=4 rw=0 mosi=92)
+# UVM_INFO testbench.sv(258) @ 1015000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1015000
+# UVM_INFO testbench.sv(216) @ 1025000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=4 mosi=92 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1035000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=1 mosi=0 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1045000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=1 mosi=0 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1045000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=1 rw=1 mosi=0)
+# UVM_INFO testbench.sv(258) @ 1045000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1045000
+# UVM_INFO testbench.sv(216) @ 1055000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=1 mosi=0 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1065000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=4 mosi=93 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1075000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=4 mosi=93 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1075000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=4 rw=1 mosi=93)
+# UVM_INFO testbench.sv(258) @ 1075000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1075000
+# UVM_INFO testbench.sv(216) @ 1085000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=4 mosi=93 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1095000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=9 mosi=12 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1105000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=9 mosi=12 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1105000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=9 rw=1 mosi=12)
+# UVM_INFO testbench.sv(258) @ 1105000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1105000
+# UVM_INFO testbench.sv(216) @ 1115000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=9 mosi=12 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1125000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=5 mosi=248 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1135000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=5 mosi=248 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1135000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=5 rw=1 mosi=248)
+# UVM_INFO testbench.sv(258) @ 1135000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1135000
+# UVM_INFO testbench.sv(216) @ 1145000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=5 mosi=248 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1155000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=15 mosi=177 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1165000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=15 mosi=177 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1165000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=15 rw=1 mosi=177)
+# UVM_INFO testbench.sv(258) @ 1165000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1165000
+# UVM_INFO testbench.sv(216) @ 1175000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=15 mosi=177 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1185000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=6 mosi=73 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1195000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=6 mosi=73 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1195000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=6 rw=1 mosi=73)
+# UVM_INFO testbench.sv(258) @ 1195000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1195000
+# UVM_INFO testbench.sv(216) @ 1205000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=6 mosi=73 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1215000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=2 mosi=145 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1225000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=2 mosi=145 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1225000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=2 rw=0 mosi=145)
+# UVM_INFO testbench.sv(258) @ 1225000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1225000
+# UVM_INFO testbench.sv(216) @ 1235000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=2 mosi=145 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1245000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=15 mosi=156 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1255000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=15 mosi=156 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1255000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=15 rw=1 mosi=156)
+# UVM_INFO testbench.sv(258) @ 1255000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1255000
+# UVM_INFO testbench.sv(216) @ 1265000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=15 mosi=156 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1275000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=10 mosi=24 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1285000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=10 mosi=24 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1285000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=10 rw=1 mosi=24)
+# UVM_INFO testbench.sv(258) @ 1285000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1285000
+# UVM_INFO testbench.sv(216) @ 1295000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=10 mosi=24 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1305000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=12 mosi=157 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1315000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=12 mosi=157 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1315000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=12 rw=0 mosi=157)
+# UVM_INFO testbench.sv(258) @ 1315000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1315000
+# UVM_INFO testbench.sv(216) @ 1325000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=12 mosi=157 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1335000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=2 mosi=23 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1345000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=2 mosi=23 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1345000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=2 rw=1 mosi=23)
+# UVM_INFO testbench.sv(258) @ 1345000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1345000
+# UVM_INFO testbench.sv(216) @ 1355000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=2 mosi=23 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1365000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=10 mosi=122 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1375000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=10 mosi=122 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1375000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=10 rw=1 mosi=122)
+# UVM_INFO testbench.sv(258) @ 1375000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1375000
+# UVM_INFO testbench.sv(216) @ 1385000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=10 mosi=122 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1395000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=10 mosi=74 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1405000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=10 mosi=74 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1405000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=10 rw=1 mosi=74)
+# UVM_INFO testbench.sv(258) @ 1405000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1405000
+# UVM_INFO testbench.sv(216) @ 1415000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=10 mosi=74 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1425000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=1 mosi=24 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1435000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=1 mosi=24 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1435000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=1 rw=1 mosi=24)
+# UVM_INFO testbench.sv(258) @ 1435000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1435000
+# UVM_INFO testbench.sv(216) @ 1445000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=1 mosi=24 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1455000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=13 mosi=147 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1465000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=16 reg=13 mosi=147 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1465000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=13 rw=1 mosi=147)
+# UVM_INFO testbench.sv(258) @ 1465000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1465000
+# UVM_INFO testbench.sv(216) @ 1475000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=16 reg=13 mosi=147 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1485000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=3 mosi=187 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1495000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=0 dev=16 reg=3 mosi=187 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1495000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=16 reg=3 rw=0 mosi=187)
+# UVM_INFO testbench.sv(258) @ 1495000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1495000
+# UVM_INFO testbench.sv(216) @ 1505000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=0 dev=16 reg=3 mosi=187 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1515000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1525000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1525000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=77 reg=216 rw=1 mosi=54)
+# UVM_INFO testbench.sv(258) @ 1525000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1525000
+# UVM_INFO testbench.sv(216) @ 1535000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1545000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1555000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1565000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1575000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1585000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1595000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1605000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1615000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1625000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1635000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1645000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1655000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1665000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1675000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1685000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1695000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1705000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1715000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1725000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=77 reg=216 mosi=54 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1735000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1745000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1745000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=123 reg=201 rw=1 mosi=78)
+# UVM_INFO testbench.sv(258) @ 1745000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1745000
+# UVM_INFO testbench.sv(216) @ 1755000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1765000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1775000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1785000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1795000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1805000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1815000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1825000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1835000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1845000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1855000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1865000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1875000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1885000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1895000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1905000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1915000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1925000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1935000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1945000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=123 reg=201 mosi=78 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1955000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1965000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 1965000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=71 reg=134 rw=1 mosi=89)
+# UVM_INFO testbench.sv(258) @ 1965000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @1965000
+# UVM_INFO testbench.sv(216) @ 1975000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1985000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 1995000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2005000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2015000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2025000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2035000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2045000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2055000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2065000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2075000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2085000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2095000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2105000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2115000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2125000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2135000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2145000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2155000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2165000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=71 reg=134 mosi=89 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2175000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2185000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 2185000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=79 reg=55 rw=1 mosi=38)
+# UVM_INFO testbench.sv(258) @ 2185000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @2185000
+# UVM_INFO testbench.sv(216) @ 2195000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2205000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2215000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2225000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2235000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2245000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2255000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2265000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2275000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2285000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2295000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2305000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2315000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2325000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2335000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2345000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2355000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2365000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2375000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2385000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=79 reg=55 mosi=38 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2395000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2405000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 2405000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=46 reg=83 rw=1 mosi=105)
+# UVM_INFO testbench.sv(258) @ 2405000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @2405000
+# UVM_INFO testbench.sv(216) @ 2415000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2425000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2435000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2445000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2455000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2465000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2475000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2485000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2495000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2505000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2515000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2525000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2535000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2545000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2555000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2565000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2575000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2585000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2595000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2605000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=46 reg=83 mosi=105 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2615000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2625000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 2625000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=7 reg=241 rw=1 mosi=142)
+# UVM_INFO testbench.sv(258) @ 2625000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @2625000
+# UVM_INFO testbench.sv(216) @ 2635000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2645000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2655000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2665000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2675000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2685000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2695000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2705000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2715000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2725000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2735000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2745000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2755000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2765000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2775000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2785000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2795000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2805000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2815000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2825000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=7 reg=241 mosi=142 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2835000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2845000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 2845000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=66 reg=138 rw=1 mosi=32)
+# UVM_INFO testbench.sv(258) @ 2845000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @2845000
+# UVM_INFO testbench.sv(216) @ 2855000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2865000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2875000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2885000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2895000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2905000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2915000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2925000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2935000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2945000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2955000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2965000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2975000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2985000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 2995000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3005000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3015000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3025000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3035000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3045000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=66 reg=138 mosi=32 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3055000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3065000: uvm_test_top.env.agent.monitor [MON] MON: en=1 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(250) @ 3065000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: saw enable (dev=3 reg=33 rw=1 mosi=56)
+# UVM_INFO testbench.sv(258) @ 3065000: uvm_test_top.env.scoreboard [SCOREBOARD] SCOREBOARD: transaction started (dev=0 reg=0) @3065000
+# UVM_INFO testbench.sv(216) @ 3075000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3085000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3095000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3105000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3115000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3125000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3135000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3145000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3155000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3165000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3175000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3185000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3195000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3205000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3215000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3225000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3235000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3245000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3255000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO testbench.sv(216) @ 3265000: uvm_test_top.env.agent.monitor [MON] MON: en=0 rw=1 dev=3 reg=33 mosi=56 miso=0 busy=1
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 3265000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 3265000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  446
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [MON]   325
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]   116
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 3265 ns  Iteration: 74  Instance: /tb_top
+# End time: 19:46:40 on Aug 26,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
+End time: 19:46:40 on Aug 26,2025, Elapsed time: 0:00:14
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   1

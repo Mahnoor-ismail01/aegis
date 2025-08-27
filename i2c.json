@@ -1,0 +1,100 @@
+{
+  "dut": "i2c_master",
+  "data_width": 8,
+  "ports": [
+    {"name": "clock", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "reset_n", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "enable", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "read_write", "direction": "input", "size": 1, "datatype": "bit"},
+    {"name": "mosi_data", "direction": "input", "size": 8, "datatype": "bit"},
+    {"name": "register_address", "direction": "input", "size": 8, "datatype": "bit"},
+    {"name": "device_address", "direction": "input", "size": 7, "datatype": "bit"},
+    {"name": "divider", "direction": "input", "size": 16, "datatype": "bit"},
+    {"name": "miso_data", "direction": "output", "size": 8, "datatype": "bit"},
+    {"name": "busy", "direction": "output", "size": 1, "datatype": "bit"},
+    {"name": "external_serial_data", "direction": "inout", "size": 1, "datatype": "bit"},
+    {"name": "external_serial_clock", "direction": "inout", "size": 1, "datatype": "bit"}
+  ],
+  "testcases": [
+    {
+      "name": "single_write",
+      "num_transactions": 10,
+      "constraints": {
+        "mosi_data_min": {"value": 0, "datatype": "int"},
+        "mosi_data_max": {"value": 255, "datatype": "int"},
+        "register_address_min": {"value": 0, "datatype": "int"},
+        "register_address_max": {"value": 0, "datatype": "int"},
+        "device_address_min": {"value": 16, "datatype": "int"},
+        "device_address_max": {"value": 16, "datatype": "int"},
+        "divider_min": {"value": 100, "datatype": "int"},
+        "divider_max": {"value": 100, "datatype": "int"},
+        "enable": {"value": true, "datatype": "bit"},
+        "read_write": {"value": false, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "single_read",
+      "num_transactions": 10,
+      "constraints": {
+        "mosi_data_min": {"value": 0, "datatype": "int"},
+        "mosi_data_max": {"value": 255, "datatype": "int"},
+        "register_address_min": {"value": 0, "datatype": "int"},
+        "register_address_max": {"value": 0, "datatype": "int"},
+        "device_address_min": {"value": 16, "datatype": "int"},
+        "device_address_max": {"value": 16, "datatype": "int"},
+        "divider_min": {"value": 100, "datatype": "int"},
+        "divider_max": {"value": 100, "datatype": "int"},
+        "enable": {"value": true, "datatype": "bit"},
+        "read_write": {"value": true, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "multiple_write",
+      "num_transactions": 15,
+      "constraints": {
+        "mosi_data_min": {"value": 0, "datatype": "int"},
+        "mosi_data_max": {"value": 255, "datatype": "int"},
+        "register_address_min": {"value": 0, "datatype": "int"},
+        "register_address_max": {"value": 15, "datatype": "int"},
+        "device_address_min": {"value": 16, "datatype": "int"},
+        "device_address_max": {"value": 16, "datatype": "int"},
+        "divider_min": {"value": 200, "datatype": "int"},
+        "divider_max": {"value": 200, "datatype": "int"},
+        "enable": {"value": true, "datatype": "bit"},
+        "read_write": {"value": false, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "multiple_read",
+      "num_transactions": 15,
+      "constraints": {
+        "mosi_data_min": {"value": 0, "datatype": "int"},
+        "mosi_data_max": {"value": 255, "datatype": "int"},
+        "register_address_min": {"value": 0, "datatype": "int"},
+        "register_address_max": {"value": 15, "datatype": "int"},
+        "device_address_min": {"value": 16, "datatype": "int"},
+        "device_address_max": {"value": 16, "datatype": "int"},
+        "divider_min": {"value": 200, "datatype": "int"},
+        "divider_max": {"value": 200, "datatype": "int"},
+        "enable": {"value": true, "datatype": "bit"},
+        "read_write": {"value": true, "datatype": "bit"}
+      }
+    },
+    {
+      "name": "edge_case",
+      "num_transactions": 8,
+      "constraints": {
+        "mosi_data_min": {"value": 0, "datatype": "int"},
+        "mosi_data_max": {"value": 255, "datatype": "int"},
+        "register_address_min": {"value": 0, "datatype": "int"},
+        "register_address_max": {"value": 255, "datatype": "int"},
+        "device_address_min": {"value": 0, "datatype": "int"},
+        "device_address_max": {"value": 127, "datatype": "int"},
+        "divider_min": {"value": 50, "datatype": "int"},
+        "divider_max": {"value": 65535, "datatype": "int"},
+        "enable": {"value": true, "datatype": "bit"},
+        "read_write": {"value": true, "datatype": "bit"}
+      }
+    }
+  ]
+}
